@@ -1,11 +1,13 @@
-# 🚀 five-illegal
+# 🚀 FiveM Illegal Script
 
 This script is designed to manage illegal activities in your FiveM server. It supports the following frameworks and dependencies:
 
 ## 🛠️ Features
 - **Framework Support:** `qb-core`, `ox_inventory`, `qb-inventory`, `qb-target`, `ox_target`
 - **Minigame Support:** `bl_ui`, `ps-ui`, `ox_lib`
+- **Menu Support:** `qb-menu`, `ox_lib`
 - **Requirements:** `qb-core`, `ox_lib`, `qb-target` or `ox_target`
+- **Language Support:** English 🇬🇧 and Turkish 🇹🇷
 
 ## ⚙️ Script Workflow
 The script consists of four stages: gathering, processing, packaging, and selling.
@@ -19,6 +21,11 @@ The script consists of four stages: gathering, processing, packaging, and sellin
 4. **💰 Selling:** There are two ways to sell:
    - Interact with a fixed NPC location to sell your packages.
    - Walk around the Grove or Vinewood areas and interact with NPCs to sell directly.
+   - **🚔 Police Notification:** Selling to NPCs may trigger a police alert.
+   - **📝 Discord Logging:** All sales are logged via Discord webhook.
+
+## 💊 Additional Features
+- **Drug Effects:** Use processed drugs to experience in-game drug effects.
 
 ## 🆕 Future Updates
 - ESX support
