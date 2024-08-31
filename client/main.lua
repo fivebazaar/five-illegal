@@ -24,7 +24,7 @@ function CreateEsrarZones()
         elseif Config.Target == "ox_target" then
             exports.ox_target:addBoxZone({
                 coords = Config.Esrartoplama[i],
-                size = vec3(1, 1, 1),
+                size = vec3(1, 1, 5),
                 rotation = 114.34,
                 minZ = 41.59,
                 maxZ = 43.59,
