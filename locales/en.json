@@ -49,5 +49,14 @@
     "esrar_sell_notify_success": "%s processed weed sold!",
     "esrar_sell_notify_error": "You don't have enough processed weed!",
     "empty_package_error": "No empty package found!",
-    "esrar_process_success": "Weed processed and packaged!"
+    "esrar_process_success": "Weed processed and packaged!",
+    "timeout_error": "Hey, take it easy or you'll get kicked from the server.",
+    "kick_message": "You have been kicked from the server due to cheating/dupe suspicion (five-illegal). This action was taken to protect the server's security.",
+    "distance_error": "It seems like you are trying to do this from a bit far away?",
+    "timeout_bot_username": "Timeout Bot",
+    "player_kicked_title": "Player Kicked",
+    "player_kicked_description": "%s has been kicked due to dupe/cheat suspicion.",
+    "player_name_field": "Player Name",
+    "reason_field": "Reason",
+    "time_field": "Time"
 }

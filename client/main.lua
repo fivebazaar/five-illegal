@@ -56,7 +56,7 @@ AddEventHandler('five-illegal:cannabiscollect', function()
         if collectAllowed then
             topluyormu = true
 
-            QBCore.Functions.Progressbar('esrartopla', locale('esrar_collecting'), 2000, false, true, {
+            QBCore.Functions.Progressbar('esrartopla', locale('esrar_collecting'), 100, false, true, {
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,

@@ -51,5 +51,18 @@
       "PRICE": "Fiyat",
       "COORDINATES": "Koordinatlar",
       "DRUG_SALE_SYSTEM": "Uyuşturucu Satış Sistemi",
-      "DRUG_SALE_BOT": "Uyuşturucu Satış Botu"
+      "DRUG_SALE_BOT": "Uyuşturucu Satış Botu",
+      "timeout_error": "Hey biraz sakin ol yoksa sunucudan atılacaksın",
+      "kick_message": "Hile/dupe şüphesiyle (five-illegal) sunucudan atıldın. Bu, sunucunun güvenliğini korumak için yapıldı.",
+      "distance_error": "Sanki bu işlemi biraz uzaktan yapmaya çalışıyorsun gibi?",
+
+
+
+      "timeout_bot_username": "Zaman Aşımı Botu",
+      "player_kicked_title": "Oyuncu Kicklendi",
+      "player_kicked_description": "%s isimli oyuncu dupe/hile şüphesiyle kicklendi.",
+      "player_name_field": "Oyuncu İsmi",
+      "reason_field": "Sebep",
+      "time_field": "Zaman"
+
   }

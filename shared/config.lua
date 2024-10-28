@@ -4,7 +4,7 @@ Config.EsrarOdeme = "cash" --  (Nakit = cash / Banka = cash / Kara Para = marked
 Config.Inventory = 'qb-inventory' -- ox_inventory qb-inventory
 Config.Menu = "ox_lib"  -- qb-menu / ox_lib
 --Config.Interaction = "qb-core" -- Soon?
-Config.Minigame = "ox_lib" -- ps-ui / bl_ui / ox_lib /
+Config.Minigame = "ps-ui" -- ps-ui / bl_ui / ox_lib /
 Config.Drugs = true -- true / false drugs setting
 Config.Log = true -- true / false log
 Config.Chance = 100  -- chance rate police dispatch
@@ -15,7 +15,14 @@ Config.Target = "qb-target" -- qb-target / ox_Target
 Config.ProgressTime = 1000 --packed
 Config.Updater = true
 Config.Debug = true
-Config.WebhookURL = "XXXX"
+Config.WebhookURL = "https://discord.com/api/webhooks/1300504240271134740/MpR2-nHBsDS4SeOhH6M4cw5osHTSGfZB7pIg5PfA6I1kqa_PP4zCLpdy5BEHZf88n3F7"
+-- GUARD
+
+-- Mesafe ve timeout ayarları
+Config.MaxDistance = 10.0 -- Mesafe sınırı
+Config.TimeoutLimit = 20   -- Timeout süresi (saniye cinsinden)
+Config.MaxTimeoutAttempts = 3 -- Timeout limit sayısı
+Config.KickOnTimeout = true -- Timeout limitini aşan oyuncuları at
 
 -- Items
  --Collection 
