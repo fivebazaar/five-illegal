@@ -5,7 +5,7 @@ local lastProcessTime = {}
 local lastSellTime = {}
 local timeoutAttempts = {}
 
-function randomcollect()
+local function randomcollect()
     local totalChance = 0
     for _, v in ipairs(Config.WeedItems) do
         totalChance = totalChance + v.chance
