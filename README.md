@@ -35,10 +35,10 @@ The script consists of four stages: gathering, processing, packaging, and sellin
 - Minor changes and improvements
 
 ## 🎥 Promo Video
-[Watch the promotional video here!](#)
+[Watch the promotional video here!](https://youtu.be/bL3mJGA_FbY?si=dVtCbBE7BCBQ43Cv)
 
 ## 📄 Installation
-For installation instructions, please visit our [documentation site](#).
+For installation instructions, please visit our [documentation site](https://fivebazaar.gitbook.io/overview/five-illegalv2/installation).
 
 ## 💬 Need Help or Have Suggestions?
 Join our [Discord server](#) for support or to share your ideas!
