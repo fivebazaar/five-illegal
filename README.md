@@ -34,11 +34,20 @@ The script consists of four stages: gathering, processing, packaging, and sellin
 - `ox_lib` progress bar support
 - Minor changes and improvements
 
-## 🎥 Promo Video
-[Watch the promotional video here!](https://youtu.be/bL3mJGA_FbY?si=dVtCbBE7BCBQ43Cv)
+## 🆕 New Updates
+- Stronger protection against dupe and exploit vulnerabilities with server-side security checks!
+- Distance verification for interactions!
+- Extra security measures with timeout limits for repeated transactions!
+- Easier player tracking with detailed webhook logs!
+- Bugs in ox_target fixed
+- Added random location setting for props to turn on and off
+- added extra z coordinate setting for props
 
+## 🎥 Promo Video
+[Watch the promotional video here!](https://youtu.be/bL3mJGA_FbY)
+[Watch the new updates video here!](https://youtu.be/a2dC4rSWPLc)
 ## 📄 Installation
-For installation instructions, please visit our [documentation site](https://fivebazaar.gitbook.io/overview/five-illegalv2/installation).
+For installation instructions, please visit our [documentation site](https://fivebazaar.gitbook.io/overview/five-illegalv2).
 
 ## 💬 Need Help or Have Suggestions?
-Join our [Discord server](#) for support or to share your ideas!
+Join our [Discord server](https://discord.gg/q5t8xcx8) for support or to share your ideas!

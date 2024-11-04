@@ -5,7 +5,7 @@ local lastProcessTime = {}
 local lastSellTime = {}
 local timeoutAttempts = {}
 
-local function randomcollect()
+function randomcollect()
     local totalChance = 0
     for _, v in ipairs(Config.WeedItems) do
         totalChance = totalChance + v.chance
@@ -75,7 +75,7 @@ AddEventHandler("five-illegal:cannabiscollect", function()
 
     lastProcessTime[src] = currentTime
     timeoutAttempts[src] = 0
-    local itemeklendi = akyolm383.additem(src, randomcollect(), math.random(Config.EsrarMin, Config.EsrarMax))
+    local itemeklendi = akyolm383.additem(src, randomcollect(), math.random(Config.WeedMin, Config.WeedMax))
 
     if itemeklendi then
         TriggerClientEvent('QBCore:Notify', src, locale('esrar_collecting_notify_success'), 'success')
@@ -112,10 +112,10 @@ AddEventHandler("five-illegal:cannabisproccess", function()
     timeoutAttempts[src] = 0
     for _, harvestedItem in pairs(Config.WeedItems) do
         local itemName = harvestedItem.item    
-        if akyolm383.removeitem(src, itemName, Config.EsrarIslemeMiktar) then
+        if akyolm383.removeitem(src, itemName, Config.WeedProcessAmount) then
             for _, newItem in pairs(Config.LeavesWeedItems) do
                 if string.find(newItem, itemName) then
-                    akyolm383.additem(src, newItem, Config.EsrarIslemeMiktar)
+                    akyolm383.additem(src, newItem, Config.WeedProcessAmount)
                 end
             end
             TriggerClientEvent('QBCore:Notify', src, locale('esrar_process_notify_success'), 'success')
@@ -154,7 +154,7 @@ AddEventHandler("five-illegal:esrarSell", function(adet)
 
     local paymentItem = Config.EsrarOdeme == "bank" and 'bank' or 'cash'
     for i, item in ipairs(Config.PackageSellWeedItems) do
-        if akyolm383.removeitem(src, item, Config.EsrarSatisMiktar * adet) then
+        if akyolm383.removeitem(src, item, Config.WeedSellAmount * adet) then
             local price = Config.SellPrice * adet
             akyolm383.addmoney(src, price)
             TriggerClientEvent('QBCore:Notify', src, locale('esrar_sell_notify_success', adet), 'success', 2500)
@@ -186,14 +186,28 @@ RegisterNetEvent('five-illegal:server:cannabis', function()
     end
 end)
 
+
 for leavesItem, packageItem in pairs(Config.PackageWeedItems) do
     QBCore.Functions.CreateUseableItem(leavesItem, function(source)
-        local hasEmptyPackage, emptypackageItem = hasItemFromList(source, Config.EmptyPackageItems)
+
+        local function hasItemFromList(player, itemList)
+            for _, itemName in ipairs(itemList) do
+                local item = akyolm383.checkitem(source, itemName)
+                if item then
+                    return true, itemName
+                end
+            end
+            return false, nil
+        end
+
+        local hasEmptyPackage, emptypackageItem = hasItemFromList(xPlayer, Config.EmptyPackageItems)
+
         if not hasEmptyPackage then
             TriggerClientEvent('QBCore:Notify', source, locale('empty_package_error'), 'error')
         else
             TriggerClientEvent('five-illegal:progbarstart', source, leavesItem, emptypackageItem, packageItem)
         end
+
     end)
 end
 
@@ -206,4 +220,5 @@ AddEventHandler('five-illegal:progbarok', function(leavesItem, emptypackageItem,
     else
         TriggerClientEvent('QBCore:Notify', src, locale('esrar_process_notify_error'), 'error')
     end
+    
 end)

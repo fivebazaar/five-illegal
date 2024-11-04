@@ -1,15 +1,56 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 lib.locale()
+local currentProp = nil 
+local activeCoord = nil 
+
+function RandomizeWeedLocation()
+    if Config.RandomLocation then
+        activeCoord = Config.WeedLocation[math.random(#Config.WeedLocation)]
+        currentProp = AddPropToCoords(activeCoord)
+    else
+        for _, coord in ipairs(Config.WeedLocation) do
+            AddPropToCoords(coord)
+        end
+    end
+end
+
+function AddPropToCoords(xyCoords)
+    local propModel = "prop_pot_plant_inter_03a"
+    local propHeading = 0.0
+    local coords = vector3(xyCoords.x, xyCoords.y, Config.WeedLocationZCoord)
+    
+    RequestModel(propModel)
+    while not HasModelLoaded(propModel) do
+        Wait(500)
+    end
+    
+    local prop = CreateObject(GetHashKey(propModel), coords, false, false, false)
+    SetEntityHeading(prop, propHeading)
+    FreezeEntityPosition(prop, true)
+    
+    if Config.RandomLocation then
+        currentProp = prop
+    end
+    
+    return prop
+end
+
+function RemoveProp()
+    if Config.RandomLocation and currentProp then
+        DeleteObject(currentProp)
+        currentProp = nil
+    end
+end
 
 function CreateEsrarZones()
-    for i = 1, #Config.Esrartoplama do
+    for i = 1, #Config.WeedLocation do
         if Config.Target == "qb-target" then
-            exports['qb-target']:AddBoxZone("Esrar" .. i, Config.Esrartoplama[i], 1, 1, {
+            exports['qb-target']:AddBoxZone("Esrar" .. i, Config.WeedLocation[i], 1, 1, {
                 name = "Esrar",
                 heading = 114.34,
                 debugPoly = false,
-                minZ = 41.59,
-                maxZ = 43.59
+                minZ = Config.WeedLocation[i].z - 1,
+                maxZ = Config.WeedLocation[i].z + 1
             }, {
                 options = {
                     {
@@ -23,11 +64,11 @@ function CreateEsrarZones()
             })
         elseif Config.Target == "ox_target" then
             exports.ox_target:addBoxZone({
-                coords = Config.Esrartoplama[i],
+                coords = Config.WeedLocation[i],
                 size = vec3(1, 1, 1),
                 rotation = 114.34,
-                minZ = 41.59,
-                maxZ = 43.59,
+                minZ = Config.WeedLocation[i].z - 1,
+                maxZ = Config.WeedLocation[i].z + 1,
                 options = {
                     {
                         name = "Esrar",
@@ -43,6 +84,7 @@ function CreateEsrarZones()
 end
 
 CreateEsrarZones()
+RandomizeWeedLocation()
 
 RegisterNetEvent('five-illegal:cannabiscollect')
 AddEventHandler('five-illegal:cannabiscollect', function()
@@ -72,6 +114,10 @@ AddEventHandler('five-illegal:cannabiscollect', function()
             }, {}, function() 
                 TriggerServerEvent('five-illegal:cannabiscollect')
                 topluyormu = false
+                if Config.RandomLocation then
+                    RemoveProp()
+                    RandomizeWeedLocation()
+                end
             end, function() 
                 topluyormu = false
                 TriggerEvent('QBCore:Notify', locale('weed_collect_fail'), 'error')
@@ -82,7 +128,6 @@ AddEventHandler('five-illegal:cannabiscollect', function()
         end
     end
 end)
-
 
 
 
@@ -338,23 +383,6 @@ if Config.Seller then
         FreezeEntityPosition(ped_info2, true)
     end)
 end
-function AddPropToCoords(coords)
-    local propModel = "prop_pot_plant_inter_03a"
-    local propHeading = 0.0
-    RequestModel(propModel)
-    while not HasModelLoaded(propModel) do
-        Wait(500)
-    end
-    local prop = CreateObject(GetHashKey(propModel), coords, false, false, false)
-    SetEntityHeading(prop, propHeading)
-    FreezeEntityPosition(prop, true)
-end
-
-Citizen.CreateThread(function()
-    for _, coord in ipairs(Config.Esrartoplama) do
-        AddPropToCoords(coord)
-    end
-end)
 
 local function heal()
     if healing then return end

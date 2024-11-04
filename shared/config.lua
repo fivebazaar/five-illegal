@@ -1,21 +1,21 @@
 Config={}
 --GENERAL
 Config.EsrarOdeme = "cash" --  (Nakit = cash / Banka = cash / Kara Para = markedbills)
-Config.Inventory = 'qb-inventory' -- ox_inventory qb-inventory
+Config.Inventory = 'ox_inventory' -- ox_inventory qb-inventory
 Config.Menu = "ox_lib"  -- qb-menu / ox_lib
 --Config.Interaction = "qb-core" -- Soon?
-Config.Minigame = "ps-ui" -- ps-ui / bl_ui / ox_lib /
+Config.Minigame = "bl_ui" -- ps-ui / bl_ui / ox_lib /
 Config.Drugs = true -- true / false drugs setting
 Config.Log = true -- true / false log
 Config.Chance = 100  -- chance rate police dispatch
 Config.Dispatch = true -- police dispatch true false
 Config.Seller = true -- fixed npc seller true false
-Config.Target = "qb-target" -- qb-target / ox_Target
--- Config.Progressbar = "ox_lib" Soon??
+Config.Target = "ox_target" -- qb-target / ox_Target
 Config.ProgressTime = 1000 --packed
 Config.Updater = true
 Config.Debug = true
 Config.WebhookURL = "https://discord.com/api/webhooks/1300504240271134740/MpR2-nHBsDS4SeOhH6M4cw5osHTSGfZB7pIg5PfA6I1kqa_PP4zCLpdy5BEHZf88n3F7"
+Config.RandomLocation = false -- weed collect location random or still
 -- GUARD
 
 -- Mesafe ve timeout ayarları
@@ -36,27 +36,29 @@ Config.PackageWeedItems = { -- the equivalent of packaged weed
     ["leaves_weed_bad_ql"] = "package_weed_bad_ql",
     ["leaves_weed_max_ql"] = "package_weed_max_ql" 
 }
- Config.LeavesWeedItems = {"leaves_weed_bad_ql", "leaves_weed_max_ql"} -- işlenmiş weed
- Config.PackageSellWeedItems = {"package_weed_bad_ql", "package_weed_max_ql"}
+Config.LeavesWeedItems = {"leaves_weed_bad_ql", "leaves_weed_max_ql"} -- işlenmiş weed
+Config.PackageSellWeedItems = {"package_weed_bad_ql", "package_weed_max_ql"}
 Config.EmptyPackageItems = {"emptypackage"}
 
-Config.Esrartoplama = { -- ESRARLARIN CIKACAGI YERLER
-vector3(1978.22, 4796.22, 40.59),
-vector3(1975.47, 4793.58, 40.61),
-vector3(1972.98, 4791.13, 40.61),
-vector3(1970.38, 4788.88, 40.67),
-vector3(1966.61, 4789.72, 40.83),   
-vector3(1969.34, 4792.2, 40.82),
-vector3(1971.91, 4794.81, 40.78),
-vector3(1975.08, 4797.71, 40.75),
-vector3(1977.39, 4800.22, 40.71),
+Config.WeedLocation = { -- ESRARLARIN CIKACAGI YERLER
+vector3(1978.32, 4796.43, 42.42),
+vector3(1975.47, 4793.58, 42.61),
+vector3(1972.98, 4791.13, 42.61),
+vector3(1970.38, 4788.88, 42.67),
+vector3(1966.61, 4789.72, 42.83),   
+vector3(1969.34, 4792.2, 42.82),
+vector3(1971.91, 4794.81, 42.78),
+vector3(1975.08, 4797.71, 42.75),
+vector3(1977.39, 4800.22, 42.71),
 }
-Config.EsrarMin = 1  -- Esrar toplarken minimum vereceği sayı
-Config.EsrarMax = 4 -- Esrar toplarken maximum vereceği sayı
+
+Config.WeedLocationZCoord = 40.42 --weed collect prop z coords
+Config.WeedMin = 1  -- Esrar toplarken minimum vereceği sayı
+Config.WeedMax = 4 -- Esrar toplarken maximum vereceği sayı
 --Processing
-Config.EsrarIslemeMiktar = 2 -- Kaç tane işlemesi gerektiğini belirliyorsunuz, örneğin 1 yaparsanız 1 adet işler 2 yaparsanız tek seferde 2 adet
+Config.WeedProcessAmount = 2 -- Kaç tane işlemesi gerektiğini belirliyorsunuz, örneğin 1 yaparsanız 1 adet işler 2 yaparsanız tek seferde 2 adet
 -- Selling
-Config.EsrarSatisMiktar = 1 -- Esrar satarken minimum satılan miktar
+Config.WeedSellAmount = 1 -- Esrar satarken minimum satılan miktar
 Config.SellPrice = math.random(500, 1000) -- Esrar satış fiyatı 
 
 Config.ProcessLocation = {
@@ -77,8 +79,6 @@ Config.Text = {
     Seller = "Satıcı" -- Hedef bölgesi etiketi
 }
 --coords
-
-Config.EsrarSatis = vector3(-207.58, 3646.12, 64.45) -- Esrar satış kordinat
 Config.NPC = vector4(578.41, -2804.36, 5.06, 243.48) --Satış NPC'sinin konumu
 
 Config.EnableSelling = true -- Enable selling system

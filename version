@@ -1,4 +1,4 @@
 {
-    "version": "v1.3",
-    "message": "Added server-side security checks, distance validation, and timeout limits to prevent exploit and dupe issues. Improved webhook logging for kick events."
+    "version": "v1.4",
+    "message": "- Bugs in ox_target fixed, - Added random location setting for props to turn on and off, - added extra z coordinate setting for props."
 }
